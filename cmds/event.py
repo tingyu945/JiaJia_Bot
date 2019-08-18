@@ -19,10 +19,17 @@ class Event(Cog_Extension):
 
     @commands.Cog.listener()
     async def on_message(self, msg):
+        keyword = ['apple', 'pen', 'pie', 'abc']
+        if msg.content in keyword and msg.author != self.bot.user:
+            await msg.channel.send('apple')
         if msg.content == '清' and msg.author != self.bot.user:
             await msg.channel.send('周')
         if msg.content == '小' and msg.author != self.bot.user:
             await msg.channel.send('蔡')
+        if msg.content == '周' and msg.author != self.bot.user:
+            await msg.channel.send('宇博')
+        if msg.content == '蔡' and msg.author != self.bot.user:
+            await msg.channel.send('政詰')
 
 def setup(bot):
     bot.add_cog(Event(bot))
